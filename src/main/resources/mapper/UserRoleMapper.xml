@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chajiu.repo.UserRoleRepo">
+    <select id="findAll" resultType="userRole">
+        select * from user_role;
+    </select>
+
+    <insert id="save" parameterType="userRole">
+        insert into user_role values(#{id},#{user.id},#{role.id});
+    </insert>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chajiu.repo.ProductRepo">
+    <resultMap id="productBean" type="com.chajiu.pojo.Product">
+        <id property="id" column="pid"></id>
+        <result property="name" column="pname"></result>
+        <result property="price" column="price"></result>
+        <result property="cid" column="cid"></result>
+        <association property="category" javaType="com.chajiu.pojo.Category">
+            <id property="id" column="cid"></id>
+            <result property="name" column="cname"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="productBean">
+        select  p.id as pid, p.name as pname, p.price, c.id as cid, c.name as cname from product p left outer join category c on c.id=p.cid;
+    </select>
+</mapper>
