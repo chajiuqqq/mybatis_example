@@ -12,4 +12,8 @@ public interface UserRepo {
     List<User> findLikeName(String name);
 
     List<User> findOlder(Map<String,Object> map);
+
+    List<User> findUser(User user);
+
+    List<User> findUserInList(List<Integer> uidList);
 }

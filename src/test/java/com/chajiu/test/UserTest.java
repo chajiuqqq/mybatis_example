@@ -12,9 +12,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UserTest {
     InputStream in;
@@ -61,9 +59,24 @@ public class UserTest {
     public void findOlder(){
         Map<String ,Object> map=new HashMap<String, Object>();
         map.put("name","y");
-        map.put("id",9);
+        map.put("id",1);
         List<User> users = userRepo.findOlder(map);
         System.out.println(users);
     }
+
+    @Test
+    public void findUser(){
+        User user=new User();
+//        user.setId(1);
+        user.setName("zyy");
+        System.out.println(userRepo.findUser(user));
+    }
+
+    @Test
+    public void findUserInList(){
+        List<Integer> list= new ArrayList<Integer>(Arrays.asList(1,2,3));
+        System.out.println(userRepo.findUserInList(list));
+    }
+
 
 }

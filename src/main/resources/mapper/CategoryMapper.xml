@@ -14,7 +14,14 @@
         </collection>
     </resultMap>
 
-    <select id="findAll" resultMap="categoryBean">
-        select c.id as cid, c.name as cname, p.id as pid, p.name as pname, p.price from category c left outer join product p on p.cid=c.id;
+    <select id="findAll" resultType="category" >
+        select * from category
+        <if test="start!=null and count!=null">
+            limit #{start},#{count}
+        </if>
     </select>
+
+    <insert id="add" parameterType="category">
+        insert into category(name) values(#{name})
+    </insert>
 </mapper>

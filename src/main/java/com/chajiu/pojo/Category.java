@@ -1,5 +1,6 @@
 package com.chajiu.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class Category {

@@ -34,6 +34,7 @@ public class CategoryTest {
 
     @After
     public void destroy() throws IOException {
+        session.commit();
         session.close();
         in.close();
     }
@@ -46,6 +47,22 @@ public class CategoryTest {
             System.out.println("\t\t"+category.getProducts());
         }
 
+    }
+
+    /**
+     * 测试分页
+     */
+    @Test
+    public void add(){
+//        for(int i=0;i<100;i++){
+//            Category c=new Category();
+//            c.setName("category "+i);
+//            categoryRepo.add(c);
+//        }
+        Map<String,Integer> map=new HashMap<String, Integer>();
+        map.put("start",10);
+        map.put("count",5);
+        System.out.println(categoryRepo.findAll(map));
     }
 
 }
